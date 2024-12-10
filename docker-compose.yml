@@ -9,7 +9,7 @@ services:
       - "8000:8000"
     depends_on:
       - db
-      - entities-service
+      - user-management
     networks:
       - combined-network
 
