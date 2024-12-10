@@ -9,7 +9,7 @@ services:
       - "8000:8000"
     depends_on:
       - db
-      - user-service
+      - entities-service
     networks:
       - combined-network
 
@@ -20,7 +20,7 @@ services:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_USER: myuser
       MYSQL_PASSWORD: mypassword
-      MYSQL_DATABASE: mydatabase
+      MYSQL_DATABASE: user_management
     volumes:
       - ./mysql_data:/var/lib/mysql
     networks:
@@ -29,7 +29,7 @@ services:
   user-management:
     build: ./user-management
     command: npm run start
-    container_name: user-management
+    container_name: entities-management
     depends_on:
       - db
     environment:
