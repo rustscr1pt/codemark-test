@@ -14,14 +14,15 @@ services:
       - combined-network
 
   db:
-    image: postgres:13
-    container_name: postgres
+    image: mysql:8
+    container_name: db
     environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydatabase
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_DATABASE: mydatabase
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - ./mysql_data:/var/lib/mysql
     networks:
       - combined-network
 
