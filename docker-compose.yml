@@ -28,8 +28,8 @@ services:
 
   user-management:
     build: ./user-management
-    command: npm run start
-    container_name: entities-management
+    command: sh -c "npm run test || true && npm run start"
+    container_name: user-management
     depends_on:
       - db
     environment:
